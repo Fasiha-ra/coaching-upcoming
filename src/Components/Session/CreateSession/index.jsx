@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { CreateWrapper } from "./createSession.styles";
 import backarrow from "../../../assets/profile/backarrow.png";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import TextField from "../../TextField/TextField";
 import time from "../../../assets/profile/time.png";
 import date from "../../../assets/profile/calendar.png";
@@ -154,7 +154,18 @@ const CreateSession = ({ click, onSave, user, data }) => {
       console.log(error);
     }
   };
-
+  const [profiles, setProfile] = useState(false);
+  const backPage = () => {
+    navigate("/profile");
+    setProfile(true);
+  };
+  // const handleBackClick = () => {
+  //   if (profiles) {
+  //     backPage();
+  //   } else {
+  //     click();
+  //   }
+  // };
   return (
     <CreateWrapper>
       <div className="createHolder">

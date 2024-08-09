@@ -15,12 +15,12 @@ const Profile = ({ formData}) => {
 
   const editProfile = () => {
     navigate("/EditProfile");
-  };
+  };  
 
-  const openCreateSession = () => {
-    navigate("/createSession");
-  };
-
+ 
+const backPage = () => {
+  navigate("/profile");
+}
   const handleImageChange = (e, setImage) => {
     const file = e.target.files[0];
     if (
@@ -38,7 +38,9 @@ const Profile = ({ formData}) => {
       alert("Please select a valid image file (jpg, jpeg, png)");
     }
   };
-
+  const openCreateSession = () => {
+    navigate("/createSession")
+  };
   return (
     <ProfileHold>
       <div
@@ -87,7 +89,7 @@ const Profile = ({ formData}) => {
         <Button width="208px" onClick={editProfile}>
           Edit Profile
         </Button>
-        <Button width="208px" type="outline" onClick={openCreateSession}>
+        <Button width="208px" type="outline" click={backPage} onClick={openCreateSession}>
           Create Sessions
         </Button>
         <Button width="208px" type="outline">
